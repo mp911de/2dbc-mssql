@@ -39,7 +39,7 @@
         <junit.version>5.9.1</junit.version>
         <jmh.version>1.33</jmh.version>
         <mbr.version>0.3.0.RELEASE</mbr.version>
-        <logback.version>1.2.11</logback.version>
+        <logback.version>1.2.13</logback.version>
         <mockito.version>4.11.0</mockito.version>
         <mssql-jdbc.version>12.2.0.jre8</mssql-jdbc.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
