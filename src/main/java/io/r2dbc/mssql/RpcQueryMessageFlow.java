@@ -262,7 +262,7 @@ final class RpcQueryMessageFlow {
                 state.update(message);
 
                 if (message instanceof ErrorToken) {
-                    if (isPreparedStatementNotFound(((ErrorToken) message).getNumber()) && retryReprepare.compareAndSet(true, false)) {
+                    if (retryReprepare.compareAndSet(true, false)) {
                         logger.debug("Prepared statement no longer valid: {}", handle);
                         state.update(Phase.PREPARE_RETRY);
                     }
@@ -304,7 +304,7 @@ final class RpcQueryMessageFlow {
      * @return
      */
     private static boolean isPreparedStatementNotFound(long errorNumber) {
-        return errorNumber == 8179 || errorNumber == 586;
+        return errorNumber == 8179 || errorNumber == 586 || errorNumber == 8144  || errorNumber == 8178 ;
     }
 
     private static boolean handleSpCursorReturnValue(PreparedStatementCache statementCache, Codecs codecs, String query, Binding binding, CursorState state, boolean needsPrepare,
